@@ -1,0 +1,229 @@
+📌 1. Programming (MOST IMPORTANT)
+A) Python/Java/C++ (any one language)
+
+Variables, Data types
+
+Loops, Conditionals
+
+Functions
+
+Lists/Arrays
+
+Strings
+
+Dictionaries/HashMap
+
+Recursion
+
+File handling
+
+Exception handling
+
+OOP:
+
+Class, Object
+
+Constructor
+
+Inheritance
+
+Polymorphism
+
+Encapsulation
+
+Abstraction
+
+📌 2. DSA (Data Structures & Algorithms)
+A) Arrays
+
+Two Sum
+
+Sliding Window
+
+Kadane’s
+
+Prefix sum
+
+B) Strings
+
+Palindrome
+
+Anagram
+
+Pattern search
+
+Two pointers
+
+C) Linked List
+
+Reverse LL
+
+Cycle detect
+
+Middle element
+
+D) Stack & Queue
+
+Valid parentheses
+
+Stack using queue, queue using stack
+
+Monotonic stack basics
+
+E) HashMap / Hashing
+
+Frequency count
+
+Two-sum optimized
+
+F) Trees
+
+Preorder / Inorder / Postorder
+
+Height of tree
+
+BFS / DFS
+
+G) Graphs (basic)
+
+BFS, DFS
+
+Adjacency list
+
+H) Searching + Sorting
+
+Binary search
+
+Merge sort
+
+Quick sort (concept level)
+
+I) Basic DP (only 3–4 problems)
+
+Fibonacci DP
+
+Climbing stairs
+
+House robber
+
+📌 3. CORE CS SUBJECTS (Non-negotiable)
+A) DBMS
+
+Keys
+
+Joins
+
+Normalization
+
+Transactions (ACID)
+
+SQL queries (10 common queries)
+
+B) Operating Systems
+
+Process vs Thread
+
+Scheduling algorithms
+
+Deadlock
+
+Memory management (Paging, Segmentation)
+
+C) Computer Networks
+
+OSI vs TCP/IP
+
+TCP vs UDP
+
+IP addressing
+
+HTTP/HTTPS
+
+Routing basics
+
+D) OOPS Concepts
+
+Encapsulation
+
+Inheritance
+
+Polymorphism
+
+Abstraction
+
+Real-world examples
+
+📌 4. APTITUDE (Every company asks this)
+A) Quantitative
+
+Percentages
+
+Ratios
+
+Time & Work
+
+Time, Speed & Distance
+
+Probability
+
+Permutation & Combination
+
+Averages
+
+Mixtures
+
+Profit & Loss
+
+Number System
+
+B) Logical Reasoning
+
+Seating Arrangements
+
+Blood Relations
+
+Syllogisms
+
+Puzzle solving
+
+Coding-Decoding
+
+Direction sense
+
+C) Verbal
+
+Reading comprehension
+
+Sentence correction
+
+Synonyms/Antonyms
+
+📌 5. Project + Resume Topics
+
+Python/AI mini project
+
+GitHub profile
+
+STAR method for interview answers
+
+Basic system design (fresher-level)
+
+Load balancing
+
+Caching
+
+API basics
+
+📌 6. HR / Behavioral Questions
+
+Tell me about yourself
+
+Strengths & weaknesses
+
+Why should we hire you?
+
+Explain your project
+
+Leadership example
+
+Conflict example

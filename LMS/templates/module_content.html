@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ module }} | SmartLearn</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 15px;
+    }
+
+    .content-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      animation: fadeIn 1s ease;
+      position: relative;
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #f0f0f0;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-top: 15px;
+      text-align: justify;
+    }
+
+    .btn-custom {
+      background: linear-gradient(135deg, #ff9966, #ff5e62);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    .btn-custom:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #ff5e62, #ff9966);
+    }
+
+    .btn-secondary {
+      margin-top: 15px;
+      border-radius: 30px;
+      padding: 10px 20px;
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      background: rgba(255,255,255,0.2);
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.35);
+    }
+
+    /* Recommendation Box */
+    .recommend-box {
+      margin-top: 25px;
+      background: rgba(255, 255, 255, 0.2);
+      border-left: 5px solid #00e5ff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    .recommend-box h3 {
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    /* Chat Widget */
+    #chatbot-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 340px;
+      z-index: 999;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #chat-header {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: white;
+      padding: 12px;
+      border-radius: 12px 12px 0 0;
+      cursor: pointer;
+      font-weight: 600;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    #chat-box {
+      display: none;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(12px);
+      border-radius: 0 0 12px 12px;
+      padding: 12px;
+      color: #fff;
+      max-height: 320px;
+      overflow-y: auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    #chat-box.show {
+      transform: translateY(0);
+      opacity: 1;
+      display: block;
+    }
+
+    #chat-input {
+      width: 75%;
+      border: none;
+      border-radius: 30px;
+      padding: 8px 12px;
+      outline: none;
+      color: #000;
+      margin-top: 10px;
+    }
+
+    #chat-send {
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 30px;
+      margin-top: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #chat-send:hover {
+      background: linear-gradient(135deg, #185a9d, #43cea2);
+      transform: scale(1.05);
+    }
+
+    .chat-msg {
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 8px 12px;
+      margin: 6px 0;
+      font-size: 0.9rem;
+      animation: popIn 0.4s ease;
+    }
+
+    .chat-msg.user {
+      background: #00e676;
+      color: #000;
+      text-align: right;
+      border-radius: 12px 12px 0 12px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .content-card { padding: 25px; max-width: 90%; }
+      #chatbot-container { width: 90%; right: 5%; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="content-card">
+  <h2>{{ module }} — {{ course }}</h2>
+  <p>🕒 Duration: {{ details.hours }} hrs</p>
+  <p>{{ details.content }}</p>
+
+  {% if recommendation %}
+  <div class="recommend-box">
+    <h3>🎯 Next Recommended Module:</h3>
+    <p>{{ recommendation }}</p>
+    <!-- FIXED: correct endpoint name -->
+    <a href="{{ url_for('module_content_page', cname=course, mname=recommendation) }}" class="btn-custom">Go to Next Module →</a>
+  </div>
+  {% endif %}
+
+  <div style="margin-top:20px;">
+    <a href="/quiz/{{ course }}/{{ module }}" class="btn-custom">🧠 Take Quiz</a>
+    <a href="/course/{{ course }}" class="btn-secondary">⬅ Back to Modules</a>
+  </div>
+</div>
+
+<!-- AI Doubt Assistant -->
+<div id="chatbot-container">
+  <div id="chat-header">💬 Ask AI Doubt Assistant</div>
+  <div id="chat-box">
+    <div id="chat-messages">
+      <div class="chat-msg bot">👋 Hi {{ username }}! Ask me anything about this module.</div>
+    </div>
+    <input id="chat-input" type="text" placeholder="Type your question...">
+    <button id="chat-send">Send</button>
+  </div>
+</div>
+
+<script>
+const chatHeader = document.getElementById('chat-header');
+const chatBox = document.getElementById('chat-box');
+const chatMessages = document.getElementById('chat-messages');
+const input = document.getElementById('chat-input');
+const sendBtn = document.getElementById('chat-send');
+
+// Toggle Chat
+chatHeader.onclick = () => {
+  chatBox.classList.toggle('show');
+};
+
+// Send Message
+sendBtn.onclick = async () => {
+  const question = input.value.trim();
+  if (!question) return;
+
+  const userMsg = document.createElement('div');
+  userMsg.className = 'chat-msg user';
+  userMsg.textContent = question;
+  chatMessages.appendChild(userMsg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  input.value = '';
+
+  const typing = document.createElement('div');
+  typing.className = 'chat-msg bot';
+  typing.textContent = '🤖 AI is typing...';
+  chatMessages.appendChild(typing);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  setTimeout(() => {
+    typing.remove();
+    const botMsg = document.createElement('div');
+    botMsg.className = 'chat-msg bot';
+    botMsg.textContent = "That's a great question! The AI will explain this concept soon. 💡";
+    chatMessages.appendChild(botMsg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    input.focus();
+  }, 900);
+};
+</script>
+
+</body>
+</html>
